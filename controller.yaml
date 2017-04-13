@@ -24,7 +24,7 @@ spec:
         tier: backend
     spec:
       containers:
-      - name: wobe_reverse
+      - name: wobe_v1
         image: wobe_v1:v1
         resources:
           requests:
