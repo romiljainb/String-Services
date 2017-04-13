@@ -16,6 +16,7 @@ spec:
   # selector:
   #   app: wobeStrings
   #   tier: backend
+  minReadySeconds: 10
   template:
     metadata:
       labels:
