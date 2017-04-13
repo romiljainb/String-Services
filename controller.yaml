@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: wobe_v1
-        image: wobe_v1:v1
+        image: us.gcr.io/deep-geography-164119/wobe_v1:v1
         resources:
           requests:
             cpu: 100m
