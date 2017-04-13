@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: wobeStrings
+    tier: backend
+spec:
+  type: LoadBalancer
+  ports:
+    # the port that this service should serve on
+  - port: 8080
+  selector:
+    app: wobeStrings
+    tier: backend

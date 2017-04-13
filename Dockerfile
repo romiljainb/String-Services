@@ -1,7 +1,7 @@
 FROM golang:1.7
-RUN mkdir -p /test
-RUN go get github.com/julienschmidt/httprouter
-WORKDIR /test
-ADD . /test
-RUN go build ./test.go
-CMD ["./test"]
+RUN mkdir -p /testString
+RUN go get github.com/gorilla/mux
+WORKDIR /testString
+ADD . /testString
+RUN go build ./testString.go
+CMD ["./testString"]
