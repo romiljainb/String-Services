@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: backend
   labels:
-    app: wobeStrings
+    app: backservice
     tier: backend
 spec:
   type: LoadBalancer
