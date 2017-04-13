@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: wobe-1
-    image: us.gcr.io/deep-geography-164119/wobe_1:latest
+    image: us.gcr.io/deep-geography-164119/wobe-1:latest
     ports:
     - containerPort: 8080
