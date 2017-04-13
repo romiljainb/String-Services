@@ -1,10 +1,41 @@
 apiVersion: v1
-kind: Pod
+kind: ReplicationController
 metadata:
-  name: backservice
+  name: backend
+  # these labels can be applied automatically
+  # from the labels in the pod template if not set
+  # labels:
+    # app: wobeStrings
+    # tier: backend
 spec:
-  containers:
-  - name: wobe-1
-    image: us.gcr.io/deep-geography-164119/wobe-1:latest
-    ports:
-    - containerPort: 8080
+  # this replicas value is default
+  # modify it according to your case
+  replicas: 3
+  # selector can be applied automatically
+  # from the labels in the pod template if not set
+  # selector:
+  #   app: wobeStrings
+  #   tier: backend
+  template:
+    metadata:
+      labels:
+        app: backservice
+        tier: backend
+    spec:
+      containers:
+      - name: wobe-1
+        image: us.gcr.io/deep-geography-164119/wobe-1:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+          # If your cluster config does not include a dns service, then to
+          # instead access environment variables to find service host
+          # info, comment out the 'value: dns' line above, and uncomment the
+          # line below.
+          # value: env
+        ports:
+        - containerPort: 8080
